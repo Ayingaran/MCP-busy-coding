@@ -1,1 +1,77 @@
-<!doctype html><html><body><h1>MCP Playground</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MCP Playground</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; background: #f5f5f5; }
+    h1 { text-align: center; }
+    .container { max-width: 700px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);}
+    .section { margin-bottom: 30px; }
+    input, textarea, button { width: 100%; padding: 10px; margin: 5px 0; border-radius: 5px; border: 1px solid #ccc; }
+    button { cursor: pointer; background: #007bff; color: #fff; border: none; }
+    button:hover { background: #0056b3; }
+    pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+  </style>
+</head>
+<body>
+  <h1>MCP Playground</h1>
+  <div class="container">
+
+    <!-- CV Chat Section -->
+    <div class="section">
+      <h2>Chat About CV</h2>
+      <input type="text" id="cv-question" placeholder="Ask a question about your CV" />
+      <button onclick="askCV()">Ask</button>
+      <h4>Answer:</h4>
+      <pre id="cv-answer">Waiting for your question...</pre>
+    </div>
+
+    <!-- Send Email Section -->
+    <div class="section">
+      <h2>Send Email</h2>
+      <input type="email" id="email-to" placeholder="Recipient Email" />
+      <input type="text" id="email-subject" placeholder="Subject" />
+      <textarea id="email-body" placeholder="Body (HTML allowed)"></textarea>
+      <button onclick="sendEmail()">Send Email</button>
+      <h4>Status:</h4>
+      <pre id="email-status">Waiting to send...</pre>
+    </div>
+
+  </div>
+
+  <script>
+    const apiBase = "/api"; // adjust if your server is hosted elsewhere
+
+    async function askCV() {
+      const question = document.getElementById("cv-question").value;
+      const res = await fetch(`${apiBase}/chat-cv`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question })
+      });
+      const data = await res.json();
+      document.getElementById("cv-answer").textContent = data.answer || "No answer found.";
+    }
+
+    async function sendEmail() {
+      const emailData = {
+        to: document.getElementById("email-to").value,
+        subject: document.getElementById("email-subject").value,
+        body: document.getElementById("email-body").value
+      };
+      try {
+        const res = await fetch(`${apiBase}/send-email`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(emailData)
+        });
+        const data = await res.json();
+        document.getElementById("email-status").textContent = data.status === "sent" ? "Email sent successfully!" : "Failed to send email.";
+      } catch (err) {
+        document.getElementById("email-status").textContent = "Error sending email: " + err.message;
+      }
+    }
+  </script>
+</body>
+</html>
