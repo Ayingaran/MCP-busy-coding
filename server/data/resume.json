@@ -1,0 +1,81 @@
+{
+  "roles": [
+    {
+      "title": "Software Engineer Intern",
+      "company": "Earrow (Pvt) Ltd",
+      "start": "2023-05-01",
+      "end": "2023-10-31"
+    }
+  ],
+  "skills": [
+    "PHP",
+    "Java",
+    "SQL",
+    "Python",
+    "TensorFlow",
+    "Eclipse",
+    "Android Studio",
+    "XAMPP",
+    "Figma",
+    "MySQL",
+    "Visual Studio",
+    "Linux",
+    "JIRA",
+    "Agile",
+    "Waterfall",
+    "GitHub",
+    "Git Bash",
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "Angular",
+    "MERN",
+    "UI/UX Design",
+    "AWS",
+    "Microsoft Azure"
+  ],
+  "education": [
+    {
+      "degree": "BSc (Hons) in Information Technology (Specialising in Information Technology)",
+      "institution": "Sri Lanka Institute of Information Technology",
+      "start": "2020",
+      "end": "2024"
+    },
+    {
+      "degree": "Higher National Diploma in Information Technology",
+      "institution": "Sri Lanka Institute of Information Technology",
+      "start": "2020",
+      "end": "2022"
+    }
+  ],
+  "projects": [
+    {
+      "name": "Web Application to predict Skin Disease: An Approach Using Deep Learning Algorithm",
+      "summary": "Trained a disease prediction model using deep learning techniques, employed transfer learning with a pre-trained ResNet50 Convolutional Neural Network (CNN) algorithm, utilized a comprehensive dataset of 10,000 medical images, and published a research paper in ICHORA conference 2024."
+    },
+    {
+      "name": "Online Transport Reservation System",
+      "summary": "Academic project using HTML, CSS, JS, PHP, MySQL."
+    },
+    {
+      "name": "Online School Management System",
+      "summary": "Academic project using Java, HTML, CSS, MySQL."
+    },
+    {
+      "name": "Mobile Application Development",
+      "summary": "Academic project using Android Studio (Java) and Firebase."
+    },
+    {
+      "name": "Assessment of Shade Ball Technology for Climate-Responsive Water Conservation",
+      "summary": "Academic project using React JS, Node JS, MongoDB."
+    },
+    {
+      "name": "Donation Page",
+      "summary": "Academic project using Spring Boot and Angular."
+    },
+    {
+      "name": "Personal Portfolio Website (Photography)",
+      "summary": "Academic project using WordPress."
+    }
+  ]
+}
